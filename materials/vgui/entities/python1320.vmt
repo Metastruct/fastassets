@@ -1,0 +1,6 @@
+"UnlitGeneric" {
+    $basetexture "vgui/entities/python1320"
+    $vertexcolor 1
+    $vertexalpha 1
+    $nolod 1
+}
