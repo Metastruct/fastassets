@@ -30,7 +30,7 @@ if SERVER then
 		end
 	end
 
-	AddResourceDir("sounds/fastassets")
+	AddResourceDir("sound/fastassets")
 	AddResourceDir("materials/fastassets")
 	AddResourceDir("models/fastassets")
 end
