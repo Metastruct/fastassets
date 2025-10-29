@@ -17,7 +17,7 @@ if SERVER then
 	local function AddResourceDir(dir)
 		if not file.Exists(dir, "GAME") then return end
 
-		local dirs, files = file.Find(dir .. "/*","GAME")
+		local files, dirs = file.Find(dir .. "/*","GAME")
 		for _,f in pairs(files) do
 			if not IsBadFile(f) then
 				local path = dir .. "/" .. f
