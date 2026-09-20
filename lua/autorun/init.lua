@@ -1,0 +1,38 @@
+AddCSLuaFile()
+
+if CLIENT then
+	local blacklist = {
+		"ztmp",
+		"bz2"
+	}
+
+	local function IsBadFile(f)
+		for _, format in pairs(blacklist) do
+			if f:EndsWith(format) then return true end
+		end
+
+		return false
+	end
+
+	local function FetchDir(dir)
+		if not file.Exists(dir, "GAME") then return end
+
+		local files, dirs = file.Find(dir .. "/*", "GAME")
+		for _, f in pairs(files) do
+			if not IsBadFile(f) then
+				local path = dir .. "/" .. f
+				co.fetch(GetConVarString'sv_downloadurl' .. "/" .. path)
+			end
+		end
+
+		for _, d in pairs(dirs) do
+			FetchDir(dir .. "/" .. d)
+		end
+	end
+
+	co(function()
+		FetchDir("sound/metastruct")
+		FetchDir("materials/metastruct")
+		FetchDir("models/metastruct")
+	end)
+end
