@@ -12,4 +12,4 @@ Example:
 ### How to use
 
 Example:
-`surface.LazyURLImage'materials/metastruct/orbital_cannon/active.png`
+`surface.LazyURLImage("materials/metastruct/orbital_cannon/active.png")`
